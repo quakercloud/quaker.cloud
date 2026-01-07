@@ -8,7 +8,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [starlight({
+  integrations: [ starlight({
     title: 'Quaker Cloud',
     social: [ { icon: 'github', label: 'GitHub', href: 'https://github.com/quakercloud/quaker.cloud' } ],
     sidebar: [
@@ -16,7 +16,7 @@ export default defineConfig({
         label: 'Guides',
         items: [
           // Each item here is one entry in the navigation menu.
-          { label: 'Example Guide', slug: 'guides/example' },
+          { label: 'Virtual Worship', slug: 'guides/virtual-worship' },
         ],
       },
       {
@@ -24,9 +24,9 @@ export default defineConfig({
         autogenerate: { directory: 'reference' },
       },
     ],
-  }), sitemap()],
+  }), sitemap() ],
 
   vite: {
-    plugins: [tailwindcss()],
+    plugins: [ tailwindcss() ],
   },
 });
