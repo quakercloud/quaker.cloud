@@ -1,38 +1,65 @@
 ---
-title: Welcome to Starlight
-description: Get started building your docs site with Starlight.
-template: splash # Remove or comment out this line to display the site sidebar on this page.
+title: Quaker.cloud
+description: Practical documentation and resources for Quaker meetings
+template: splash
 hero:
-  tagline: Congrats on setting up a new Starlight project!
+  tagline: Practical documentation and resources for Quaker meetings
   actions:
-    - text: Example Guide
-      link: /guides/example/
+    - text: Browse Documentation
+      link: /guides/virtual-worship/
       icon: right-arrow
-    - text: Read the Starlight docs
-      link: https://starlight.astro.build
+    - text: View on GitHub
+      link: https://github.com/quakercloud/quaker.cloud
       icon: external
       variant: minimal
 ---
 
 import { Card, CardGrid } from '@astrojs/starlight/components';
 
-## Next steps
+## About This Project
+
+Quaker.cloud provides accessible, structured documentation to help Friends manage the practical aspects of meeting life—from technology and communications to stewardship and organizational structure. We focus on the operational questions that clerks, committee members, and volunteer administrators encounter, offering guidance that's approachable for Friends who may not consider themselves "tech-savvy."
+
+This project serves as a spiritual successor to the Friends General Conference Quaker Cloud service, which supported meetings from 2011 until December 2023. Rather than hosting websites directly, we focus on documentation and resources that meetings can use regardless of their technical setup.
+
+## What You'll Find Here
 
 <CardGrid stagger>
-	<Card title="Update content" icon="pencil">
-		Edit `src/content/docs/index.mdx` to see this page change.
+	<Card title="How-To Guides" icon="document">
+		Step-by-step instructions for specific tasks: setting up virtual meetings, managing websites, creating newsletters, and more.
 	</Card>
-	<Card title="Change page layout" icon="document">
-		Delete `template: splash` in `src/content/docs/index.mdx` to display a
-		sidebar on this page.
+	<Card title="Explanations" icon="open-book">
+		Background and context to help you understand concepts—what makes hybrid worship challenging, how platforms compare, and why certain approaches work.
 	</Card>
-	<Card title="Add new content" icon="add-document">
-		Add Markdown or MDX files to `src/content/docs` to create new pages.
+	<Card title="Reference Material" icon="list-format">
+		Quick-lookup resources like platform comparisons, accessibility checklists, and equipment recommendations.
 	</Card>
-	<Card title="Configure your site" icon="setting">
-		Edit your `sidebar` and other config in `astro.config.mjs`.
-	</Card>
-	<Card title="Read the docs" icon="open-book">
-		Learn more in [the Starlight Docs](https://starlight.astro.build/).
+	<Card title="Essays & Reflections" icon="pencil">
+		Articles exploring questions at the intersection of Quaker faith and contemporary challenges, including technology discernment and AI.
 	</Card>
 </CardGrid>
+
+## Complementary Resources
+
+Quaker.cloud is designed to complement, not duplicate, existing Quaker resources. We encourage you to explore:
+
+<CardGrid>
+	<Card title="Woodbrooke" icon="external">
+		[Courses on clerking, eldership, and Quaker practice](https://www.woodbrooke.org.uk/) from Europe's foremost Quaker learning organization.
+	</Card>
+	<Card title="Friends General Conference" icon="external">
+		[Spiritual deepening resources](https://www.fgcquaker.org/), QuakerSpeak videos, and the QCCOP peer network for communications volunteers.
+	</Card>
+	<Card title="Britain Yearly Meeting" icon="external">
+		[Quaker faith & practice](https://qfp.quaker.org.uk/) and extensive guidance on meeting roles and pastoral care.
+	</Card>
+	<Card title="Quaker Meetings Network" icon="external">
+		[Website hosting and tools](https://quaker.app/) for meetings seeking a managed solution, serving Friends in the UK and US.
+	</Card>
+</CardGrid>
+
+## This Site Is Growing
+
+We're in the early stages of developing content. If you have expertise to share, topics you'd like to see covered, or corrections to suggest, contributions are welcome. Visit our [GitHub repository](https://github.com/brylie/quaker.cloud) to get involved.
+
+All content is licensed under [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), so useful guidance can spread throughout the Quaker community and beyond.
