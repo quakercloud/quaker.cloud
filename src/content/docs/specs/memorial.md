@@ -41,16 +41,16 @@ It does not cover the internal meeting process for drafting or approving memoria
 
 ### Top-Level Fields
 
-| Field          | Schema.org Term       | Required | Notes                                                  |
-| -------------- | --------------------- | -------- | ------------------------------------------------------ |
-| `identifier`   | `schema:identifier`   | Yes      | Unique ID within the meeting's namespace               |
-| `dateCreated`  | `schema:dateCreated`  | Yes      | ISO 8601 date the record was created                   |
-| `dateModified` | `schema:dateModified` | No       | ISO 8601 date last modified                            |
-| `publisher`    | `schema:publisher`    | Yes      | The meeting or worship group that approved this minute |
-| `person`       | `schema:Person`       | Yes      | The Friend being remembered (see below)                |
-| `body`         | `schema:articleBody`  | Yes      | Free-form text of the minute                           |
-| `language`     | `schema:inLanguage`   | No       | BCP 47 language tag (e.g. `en`, `fi`, `de`)            |
-| `source`       | `schema:isPartOf`     | No       | Publication or minute book this appears in             |
+| Field          | Schema.org Term       | Required | Notes                                                                   |
+| -------------- | --------------------- | -------- | ----------------------------------------------------------------------- |
+| `identifier`   | `schema:identifier`   | Yes      | Unique ID within the meeting's namespace                                |
+| `dateCreated`  | `schema:dateCreated`  | Yes      | ISO 8601 date the record was created                                    |
+| `dateModified` | `schema:dateModified` | No       | ISO 8601 date last modified                                             |
+| `publisher`    | `schema:publisher`    | Yes      | The meeting or worship group that approved this minute                  |
+| `about`        | `schema:about`        | Yes      | The Friend being remembered; value is a `schema:Person` object          |
+| `articleBody`  | `schema:articleBody`  | Yes      | Free-form text of the minute                                            |
+| `inLanguage`   | `schema:inLanguage`   | No       | BCP 47 language tag (e.g. `en`, `fi`, `de`)                             |
+| `isPartOf`     | `schema:isPartOf`     | No       | Publication or minute book this appears in                              |
 
 ### Person Fields
 
@@ -467,7 +467,7 @@ An implementation is considered conformant with this specification if it:
 
 - Provides JSON-LD serialization as the baseline format (required)
 - Provides an Atom feed at a stable, documented URL (strongly recommended)
-- Includes the required fields: `identifier`, `dateCreated`, `publisher`, `person` (with at least `familyName` or `givenName`), and `articleBody`
+- Includes the required fields: `identifier`, `dateCreated`, `publisher`, `about` (with at least `familyName` or `givenName` on the `schema:Person` object), and `articleBody`
 - Uses ISO 8601 partial date strings for any date values, omitting fields that are entirely unknown
 - Follows the date entry UI requirements: does not force users to enter more date components than they know
 - Makes a listing of all published memorial minutes available at a stable URL
