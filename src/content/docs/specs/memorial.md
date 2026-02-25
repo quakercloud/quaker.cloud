@@ -378,21 +378,27 @@ Each `<entry>` in the feed should include:
 - Custom extension elements in the `memorial:` namespace for structured person data
 
 ```xml
-<entry>
-  <title>In memory of Anna Maria Lindqvist (c. 1923–2024)</title>
-  <id>https://kvakari.fi/memorial-minutes/lindqvist-anna-maria-2024</id>
-  <updated>2024-11-01T00:00:00Z</updated>
-  <published>2024-11-01T00:00:00Z</published>
-  <memorial:person
-    xmlns:memorial="https://quaker.cloud/spec/ns/memorial/"
-    givenName="Anna Maria"
-    familyName="Lindqvist"
-    birthDate="1923"
-    birthPlaceName="Turku"
-    birthPlaceCountry="FI"
-    deathDate="2024-09-14" />
-  <content type="html"><![CDATA[ ... ]]></content>
-</entry>
+<feed xmlns="http://www.w3.org/2005/Atom"
+      xmlns:memorial="https://quaker.cloud/spec/ns/memorial/">
+
+  <!-- ... other feed-level elements (title, id, updated, link) ... -->
+
+  <entry>
+    <title>In memory of Anna Maria Lindqvist (c. 1923–2024)</title>
+    <id>https://kvakari.fi/memorial-minutes/lindqvist-anna-maria-2024</id>
+    <updated>2024-11-01T00:00:00Z</updated>
+    <published>2024-11-01T00:00:00Z</published>
+    <memorial:person
+      givenName="Anna Maria"
+      familyName="Lindqvist"
+      birthDate="1923"
+      birthPlaceName="Turku"
+      birthPlaceCountry="FI"
+      deathDate="2024-09-14" />
+    <content type="html"><![CDATA[ ... ]]></content>
+  </entry>
+
+</feed>
 ```
 
 ---
