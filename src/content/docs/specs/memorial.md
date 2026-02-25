@@ -56,18 +56,20 @@ It does not cover the internal meeting process for drafting or approving memoria
 
 The person block uses `schema:Person` vocabulary. Name fields follow schema.org conventions, which are deliberately culture-neutral: they do not assume a specific word order or that any particular component is present.
 
-| Field             | Schema.org Term          | Required | Notes                                                                          |
-| ----------------- | ------------------------ | -------- | ------------------------------------------------------------------------------ |
-| `givenName`       | `schema:givenName`       | No       | First/personal name(s)                                                         |
-| `familyName`      | `schema:familyName`      | No       | Family, clan, or surname                                                       |
-| `additionalName`  | `schema:additionalName`  | No       | Middle name(s) or additional given names                                       |
-| `honorificPrefix` | `schema:honorificPrefix` | No       | e.g. Dr., Rev., Elder                                                          |
-| `honorificSuffix` | `schema:honorificSuffix` | No       | e.g. Jr., Sr., III                                                             |
-| `birthDate`       | `schema:birthDate`       | No       | ISO 8601 partial date: `1923-04-17`, `1923-04`, or `1923` — see Date Precision |
-| `deathDate`       | `schema:deathDate`       | No       | ISO 8601 partial date — see Date Precision                                     |
-| `birthPlace`      | `schema:birthPlace`      | No       | Place object or free text — see Place Fields                                   |
-| `deathPlace`      | `schema:deathPlace`      | No       | Place object or free text — see Place Fields                                   |
-| `memberOf`        | `schema:memberOf`        | No       | Meeting(s) the Friend held membership in — see Place Fields                    |
+| Field             | Schema.org Term          | Required        | Notes                                                                          |
+| ----------------- | ------------------------ | --------------- | ------------------------------------------------------------------------------ |
+| `givenName`       | `schema:givenName`       | Conditional †   | First/personal name(s)                                                         |
+| `familyName`      | `schema:familyName`      | Conditional †   | Family, clan, or surname                                                       |
+| `additionalName`  | `schema:additionalName`  | No              | Middle name(s) or additional given names; does not satisfy the † requirement   |
+| `honorificPrefix` | `schema:honorificPrefix` | No              | e.g. Dr., Rev., Elder                                                          |
+| `honorificSuffix` | `schema:honorificSuffix` | No              | e.g. Jr., Sr., III                                                             |
+| `birthDate`       | `schema:birthDate`       | No              | ISO 8601 partial date: `1923-04-17`, `1923-04`, or `1923` — see Date Precision |
+| `deathDate`       | `schema:deathDate`       | No              | ISO 8601 partial date — see Date Precision                                     |
+| `birthPlace`      | `schema:birthPlace`      | No              | Place object or free text — see Place Fields                                   |
+| `deathPlace`      | `schema:deathPlace`      | No              | Place object or free text — see Place Fields                                   |
+| `memberOf`        | `schema:memberOf`        | No              | Meeting(s) the Friend held membership in — see Place Fields                    |
+
+† At least one of `givenName` or `familyName` must be present. See [Conformance](#conformance).
 
 **Note on name ordering:** Schema.org does not prescribe display order. Implementations should not assume `givenName familyName` order. Display name construction should follow the cultural conventions of the meeting or the Friend's own preference where known. The `name` field from `schema:Person` may be used to store a canonical display name when word order is culturally significant.
 
