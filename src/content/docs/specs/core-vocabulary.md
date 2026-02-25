@@ -70,7 +70,7 @@ These values are not exhaustive of the full historical range of Quaker diversity
 
 ## Record Types
 
-**Term:** `quaker:type`
+**Term:** `quaker:documentType`
 **Range:** string (controlled vocabulary)
 **Used on:** any `schema:Article` or similar record
 

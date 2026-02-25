@@ -16,7 +16,7 @@ The goal is interoperability: a meeting should be able to publish memorial minut
 
 This specification draws on schema.org vocabulary wherever possible to avoid reinventing structures that the broader web already understands, and to enable memorial minutes to be indexed and understood by general-purpose tools.
 
-This specification has a normative dependency on the [Quaker Cloud Core Vocabulary](/specs/core-vocabulary/), which defines the `quaker:` namespace terms used here (`quaker:type`, `quaker:meetingType`, `quaker:quakerBranch`).
+This specification has a normative dependency on the [Quaker Cloud Core Vocabulary](/specs/core-vocabulary/), which defines the `quaker:` namespace terms used here (`quaker:documentType`, `quaker:meetingType`, `quaker:quakerBranch`).
 
 ---
 
@@ -275,7 +275,7 @@ Media type: `application/ld+json`
     "quaker": "https://quaker.cloud/spec/ns/"
   },
   "@type": "Article",
-  "quaker:type": "MemorialMinute",
+  "quaker:documentType": "MemorialMinute",
   "identifier": "memorial/lindqvist-anna-maria-2024",
   "dateCreated": "2024-11-01",
   "inLanguage": "fi",
