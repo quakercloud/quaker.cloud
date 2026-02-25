@@ -1,9 +1,11 @@
-# Memorial Minute Specification
-
-**Quaker Cloud | Version 0.1 (Draft)**
-**Status: Living Document**
-**Namespace: https://quaker.cloud/spec/ns/memorial/**
-
+---
+title: Memorial Minute Specification
+description: A standard data model, serialization formats, and URL conventions for memorial minutes published by Quaker meetings.
+version: "0.1"
+specStatus: Draft
+publishDate: 2026-02-25
+lastModified: 2026-02-25
+namespace: "https://quaker.cloud/spec/ns/memorial/"
 ---
 
 ## Overview
