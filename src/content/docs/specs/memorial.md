@@ -251,13 +251,13 @@ This pattern is established in genealogical software (FamilySearch, Gramps, GEDC
 
 The `publisher` object identifies the meeting responsible for the minute.
 
-| Field           | Notes                                                                                                          |
-| --------------- | -------------------------------------------------------------------------------------------------------------- |
-| `name`          | Full name of the meeting                                                                                       |
-| `meetingType`   | Controlled vocabulary value — see [`quaker:meetingType`](/specs/core-vocabulary/#meeting-types)                |
-| `url`           | Canonical URL of the meeting's website                                                                         |
-| `yearlyMeeting` | Name of affiliated yearly meeting, if any                                                                      |
-| `quakerBranch`  | Controlled vocabulary value — see [`quaker:quakerBranch`](/specs/core-vocabulary/#quaker-branches)             |
+| Field | Notes |
+| --- | --- |
+| `name` | Full name of the meeting |
+| `quaker:meetingType` | Controlled vocabulary value — see [`quaker:meetingType`](/specs/core-vocabulary/#meeting-types) |
+| `url` | Canonical URL of the meeting's website |
+| `yearlyMeeting` | Name of affiliated yearly meeting, if any |
+| `quaker:quakerBranch` | Controlled vocabulary value — see [`quaker:quakerBranch`](/specs/core-vocabulary/#quaker-branches) |
 
 ---
 
