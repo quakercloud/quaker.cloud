@@ -16,6 +16,8 @@ The goal is interoperability: a meeting should be able to publish memorial minut
 
 This specification draws on schema.org vocabulary wherever possible to avoid reinventing structures that the broader web already understands, and to enable memorial minutes to be indexed and understood by general-purpose tools.
 
+This specification has a normative dependency on the [Quaker Cloud Core Vocabulary](/specs/core-vocabulary/), which defines the `qc:` namespace terms used here (`qc:type`, `qc:meetingType`, `qc:quakerBranch`).
+
 ---
 
 ## Scope
@@ -247,13 +249,13 @@ This pattern is established in genealogical software (FamilySearch, Gramps, GEDC
 
 The `publisher` object identifies the meeting responsible for the minute.
 
-| Field           | Notes                                                                                   |
-| --------------- | --------------------------------------------------------------------------------------- |
-| `name`          | Full name of the meeting                                                                |
-| `meetingType`   | One of: `worship-group`, `preparative`, `monthly`, `quarterly`, `half-yearly`, `yearly` |
-| `url`           | Canonical URL of the meeting's website                                                  |
-| `yearlyMeeting` | Name of affiliated yearly meeting, if any                                               |
-| `quakerBranch`  | e.g. `unprogrammed`, `programmed`, `conservative`, `evangelical`                        |
+| Field           | Notes                                                                                                          |
+| --------------- | -------------------------------------------------------------------------------------------------------------- |
+| `name`          | Full name of the meeting                                                                                       |
+| `meetingType`   | Controlled vocabulary value — see [`qc:meetingType`](/specs/core-vocabulary/#meeting-types)                    |
+| `url`           | Canonical URL of the meeting's website                                                                         |
+| `yearlyMeeting` | Name of affiliated yearly meeting, if any                                                                      |
+| `quakerBranch`  | Controlled vocabulary value — see [`qc:quakerBranch`](/specs/core-vocabulary/#quaker-branches)                 |
 
 ---
 
@@ -270,7 +272,7 @@ Media type: `application/ld+json`
 {
   "@context": {
     "@vocab": "https://schema.org/",
-    "qc": "https://quaker.cloud/spec/ns/memorial/"
+    "qc": "https://quaker.cloud/spec/ns/"
   },
   "@type": "Article",
   "qc:type": "MemorialMinute",
@@ -313,6 +315,7 @@ Namespace: `https://quaker.cloud/spec/ns/memorial/`
 <memorialMinute
   xmlns="https://quaker.cloud/spec/ns/memorial/"
   xmlns:schema="https://schema.org/"
+  xmlns:qc="https://quaker.cloud/spec/ns/"
   version="0.1">
 
   <identifier>memorial/lindqvist-anna-maria-2024</identifier>
@@ -322,8 +325,8 @@ Namespace: `https://quaker.cloud/spec/ns/memorial/`
   <publisher>
     <schema:name>Finland Yearly Meeting</schema:name>
     <schema:url>https://kvakari.fi</schema:url>
-    <meetingType>yearly</meetingType>
-    <quakerBranch>unprogrammed</quakerBranch>
+    <qc:meetingType>yearly</qc:meetingType>
+    <qc:quakerBranch>unprogrammed</qc:quakerBranch>
   </publisher>
 
   <about schema:type="Person">
@@ -488,4 +491,6 @@ Implementations are encouraged to support all three serialization formats.
 - FamilySearch date handling (stepwise date entry reference): https://www.familysearch.org
 - GEDCOM 7.0 date and place specification: https://gedcom.io/specifications/FamilySearchGEDCOMv7.html
 - Quaker Cloud project: https://quaker.cloud
-- Quaker Cloud memorial minute namespace: https://quaker.cloud/spec/ns/memorial/
+- Quaker Cloud Core Vocabulary \[normative\]: [https://quaker.cloud/specs/core-vocabulary/](https://quaker.cloud/specs/core-vocabulary/)
+- Quaker Cloud memorial minute namespace: [https://quaker.cloud/spec/ns/memorial/](https://quaker.cloud/spec/ns/memorial/)
+- Quaker Cloud core namespace: [https://quaker.cloud/spec/ns/](https://quaker.cloud/spec/ns/)
