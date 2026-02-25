@@ -16,7 +16,7 @@ The goal is interoperability: a meeting should be able to publish memorial minut
 
 This specification draws on schema.org vocabulary wherever possible to avoid reinventing structures that the broader web already understands, and to enable memorial minutes to be indexed and understood by general-purpose tools.
 
-This specification has a normative dependency on the [Quaker Cloud Core Vocabulary](/specs/core-vocabulary/), which defines the `qc:` namespace terms used here (`qc:type`, `qc:meetingType`, `qc:quakerBranch`).
+This specification has a normative dependency on the [Quaker Cloud Core Vocabulary](/specs/core-vocabulary/), which defines the `quaker:` namespace terms used here (`quaker:type`, `quaker:meetingType`, `quaker:quakerBranch`).
 
 ---
 
@@ -202,12 +202,12 @@ The `memberOf` field records which meeting or meetings the Friend held membershi
   {
     "@type": "Organization",
     "name": "Helsinki Monthly Meeting",
-    "qc:meetingType": "monthly"
+    "quaker:meetingType": "monthly"
   },
   {
     "@type": "Organization",
     "name": "Finland Yearly Meeting",
-    "qc:meetingType": "yearly"
+    "quaker:meetingType": "yearly"
   }
 ]
 ```
@@ -252,10 +252,10 @@ The `publisher` object identifies the meeting responsible for the minute.
 | Field           | Notes                                                                                                          |
 | --------------- | -------------------------------------------------------------------------------------------------------------- |
 | `name`          | Full name of the meeting                                                                                       |
-| `meetingType`   | Controlled vocabulary value — see [`qc:meetingType`](/specs/core-vocabulary/#meeting-types)                    |
+| `meetingType`   | Controlled vocabulary value — see [`quaker:meetingType`](/specs/core-vocabulary/#meeting-types)                |
 | `url`           | Canonical URL of the meeting's website                                                                         |
 | `yearlyMeeting` | Name of affiliated yearly meeting, if any                                                                      |
-| `quakerBranch`  | Controlled vocabulary value — see [`qc:quakerBranch`](/specs/core-vocabulary/#quaker-branches)                 |
+| `quakerBranch`  | Controlled vocabulary value — see [`quaker:quakerBranch`](/specs/core-vocabulary/#quaker-branches)             |
 
 ---
 
@@ -272,10 +272,10 @@ Media type: `application/ld+json`
 {
   "@context": {
     "@vocab": "https://schema.org/",
-    "qc": "https://quaker.cloud/spec/ns/"
+    "quaker": "https://quaker.cloud/spec/ns/"
   },
   "@type": "Article",
-  "qc:type": "MemorialMinute",
+  "quaker:type": "MemorialMinute",
   "identifier": "memorial/lindqvist-anna-maria-2024",
   "dateCreated": "2024-11-01",
   "inLanguage": "fi",
@@ -283,8 +283,8 @@ Media type: `application/ld+json`
     "@type": "Organization",
     "name": "Finland Yearly Meeting",
     "url": "https://kvakari.fi",
-    "qc:meetingType": "yearly",
-    "qc:quakerBranch": "unprogrammed"
+    "quaker:meetingType": "yearly",
+    "quaker:quakerBranch": "unprogrammed"
   },
   "about": {
     "@type": "Person",
@@ -315,7 +315,7 @@ Namespace: `https://quaker.cloud/spec/ns/memorial/`
 <memorialMinute
   xmlns="https://quaker.cloud/spec/ns/memorial/"
   xmlns:schema="https://schema.org/"
-  xmlns:qc="https://quaker.cloud/spec/ns/"
+  xmlns:quaker="https://quaker.cloud/spec/ns/"
   version="0.1">
 
   <identifier>memorial/lindqvist-anna-maria-2024</identifier>
@@ -325,8 +325,8 @@ Namespace: `https://quaker.cloud/spec/ns/memorial/`
   <publisher>
     <schema:name>Finland Yearly Meeting</schema:name>
     <schema:url>https://kvakari.fi</schema:url>
-    <qc:meetingType>yearly</qc:meetingType>
-    <qc:quakerBranch>unprogrammed</qc:quakerBranch>
+    <quaker:meetingType>yearly</quaker:meetingType>
+    <quaker:quakerBranch>unprogrammed</quaker:quakerBranch>
   </publisher>
 
   <about schema:type="Person">
