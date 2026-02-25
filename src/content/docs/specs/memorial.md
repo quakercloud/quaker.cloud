@@ -253,12 +253,12 @@ This pattern is established in genealogical software (FamilySearch, Gramps, GEDC
 
 The `publisher` object identifies the meeting responsible for the minute.
 
-| Field                 | Notes                                                                                              |
-| --------------------- | -------------------------------------------------------------------------------------------------- |
-| `name`                | Full name of the meeting                                                                           |
-| `quaker:meetingType`  | Controlled vocabulary value — see [`quaker:meetingType`](/specs/core-vocabulary/#meeting-types)    |
-| `url`                 | Canonical URL of the meeting's website                                                             |
-| `yearlyMeeting`       | Name of affiliated yearly meeting, if any                                                          |
+| Field | Notes |
+| --- | --- |
+| `name` | Full name of the meeting |
+| `quaker:meetingType` | Controlled vocabulary value — see [`quaker:meetingType`](/specs/core-vocabulary/#meeting-types) |
+| `url` | Canonical URL of the meeting's website |
+| `quaker:yearlyMeeting` | Name of affiliated yearly meeting; omit when the publishing meeting is itself a yearly meeting |
 | `quaker:quakerBranch` | Controlled vocabulary value — see [`quaker:quakerBranch`](/specs/core-vocabulary/#quaker-branches) |
 
 ---
@@ -271,6 +271,8 @@ The canonical serialization is JSON-LD using schema.org vocabulary. This format 
 
 File extension: `.json`
 Media type: `application/ld+json`
+
+> **`quaker:yearlyMeeting`** — Include this field inside the `publisher` object when the publishing meeting is a monthly or quarterly meeting, e.g. `"quaker:yearlyMeeting": "Finland Yearly Meeting"`. It is omitted in the example below because the publisher is itself a yearly meeting.
 
 ```json
 {
@@ -333,6 +335,9 @@ Namespace: `https://quaker.cloud/spec/ns/memorial/`
     <schema:url>https://kvakari.fi</schema:url>
     <quaker:meetingType>yearly</quaker:meetingType>
     <quaker:quakerBranch>unprogrammed</quaker:quakerBranch>
+    <!-- quaker:yearlyMeeting omitted: publisher is itself a yearly meeting.
+         For monthly/quarterly publishers include e.g.:
+         <quaker:yearlyMeeting>Finland Yearly Meeting</quaker:yearlyMeeting> -->
   </schema:publisher>
 
   <schema:about schema:type="Person">
