@@ -1,0 +1,116 @@
+---
+import { getCollection } from 'astro:content';
+
+const allDocs = await getCollection('docs');
+
+const specs = allDocs
+  .filter(entry => entry.id.startsWith('specs/') && entry.id !== 'specs/index')
+  .sort((a, b) => a.data.title.localeCompare(b.data.title));
+
+function formatDate(date: Date | undefined): string {
+  if (!date) return '—';
+  return date.toISOString().slice(0, 10);
+}
+---
+
+<table>
+  <caption class="sr-only">Quaker Cloud specifications</caption>
+  <thead>
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="col">Version</th>
+      <th scope="col">Status</th>
+      <th scope="col">Published</th>
+      <th scope="col">Last Modified</th>
+    </tr>
+  </thead>
+  <tbody>
+    {specs.map(spec => (
+      <tr>
+        <td>
+          <a href={`/${spec.id}/`}>{spec.data.title}</a>
+          {spec.data.description && (
+            <p class="spec-description">{spec.data.description}</p>
+          )}
+        </td>
+        <td>{spec.data.version ?? '—'}</td>
+        <td>
+          {spec.data.specStatus ? (
+            <span class={`spec-status spec-status--${spec.data.specStatus.toLowerCase().replace(/\s+/g, '-')}`}>
+              {spec.data.specStatus}
+            </span>
+          ) : '—'}
+        </td>
+        <td>{formatDate(spec.data.publishDate)}</td>
+        <td>{formatDate(spec.data.lastModified)}</td>
+      </tr>
+    ))}
+    {specs.length === 0 && (
+      <tr>
+        <td colspan="5">No specifications published yet.</td>
+      </tr>
+    )}
+  </tbody>
+</table>
+
+<style>
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  th, td {
+    text-align: left;
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid var(--sl-color-gray-5);
+  }
+
+  th {
+    font-weight: 600;
+    color: var(--sl-color-white);
+    background-color: var(--sl-color-gray-6);
+  }
+
+  .spec-description {
+    margin: 0.25rem 0 0;
+    font-size: 0.875rem;
+    color: var(--sl-color-gray-2);
+  }
+
+  .spec-status {
+    display: inline-block;
+    padding: 0.125rem 0.5rem;
+    border-radius: 9999px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    background-color: var(--sl-color-gray-5);
+    color: var(--sl-color-white);
+  }
+
+  .spec-status--draft {
+    background-color: var(--sl-color-orange-high);
+    color: var(--sl-color-black);
+  }
+
+  .spec-status--living-document {
+    background-color: var(--sl-color-blue-high);
+    color: var(--sl-color-black);
+  }
+
+  .spec-status--final {
+    background-color: var(--sl-color-green-high);
+    color: var(--sl-color-black);
+  }
+</style>

@@ -28,6 +28,10 @@ export default defineConfig({
         label: 'Explanations',
         autogenerate: { directory: 'explanations' },
       },
+      {
+        label: 'Specifications',
+        autogenerate: { directory: 'specs' },
+      },
     ],
   }), sitemap() ],
 
