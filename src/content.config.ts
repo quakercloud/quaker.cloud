@@ -8,7 +8,7 @@ export const collections = {
 		schema: docsSchema({
 			extend: z.object({
 				version: z.string().optional(),
-				specStatus: z.string().optional(),
+				specStatus: z.enum(['Draft', 'Living Document', 'Final']).optional(),
 				publishDate: z.coerce.date().optional(),
 				lastModified: z.coerce.date().optional(),
 				namespace: z.string().optional(),
