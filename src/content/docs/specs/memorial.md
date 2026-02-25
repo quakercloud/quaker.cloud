@@ -41,33 +41,33 @@ It does not cover the internal meeting process for drafting or approving memoria
 
 ### Top-Level Fields
 
-| Field          | Schema.org Term       | Required | Notes                                                                   |
-| -------------- | --------------------- | -------- | ----------------------------------------------------------------------- |
-| `identifier`   | `schema:identifier`   | Yes      | Unique ID within the meeting's namespace                                |
-| `dateCreated`  | `schema:dateCreated`  | Yes      | ISO 8601 date the record was created                                    |
-| `dateModified` | `schema:dateModified` | No       | ISO 8601 date last modified                                             |
-| `publisher`    | `schema:publisher`    | Yes      | The meeting or worship group that approved this minute                  |
-| `about`        | `schema:about`        | Yes      | The Friend being remembered; value is a `schema:Person` object          |
-| `articleBody`  | `schema:articleBody`  | Yes      | Free-form text of the minute                                            |
-| `inLanguage`   | `schema:inLanguage`   | No       | BCP 47 language tag (e.g. `en`, `fi`, `de`)                             |
-| `isPartOf`     | `schema:isPartOf`     | No       | Publication or minute book this appears in                              |
+| Field          | Schema.org Term       | Required | Notes                                                          |
+| -------------- | --------------------- | -------- | -------------------------------------------------------------- |
+| `identifier`   | `schema:identifier`   | Yes      | Unique ID within the meeting's namespace                       |
+| `dateCreated`  | `schema:dateCreated`  | Yes      | ISO 8601 date the record was created                           |
+| `dateModified` | `schema:dateModified` | No       | ISO 8601 date last modified                                    |
+| `publisher`    | `schema:publisher`    | Yes      | The meeting or worship group that approved this minute         |
+| `about`        | `schema:about`        | Yes      | The Friend being remembered; value is a `schema:Person` object |
+| `articleBody`  | `schema:articleBody`  | Yes      | Free-form text of the minute                                   |
+| `inLanguage`   | `schema:inLanguage`   | No       | BCP 47 language tag (e.g. `en`, `fi`, `de`)                    |
+| `isPartOf`     | `schema:isPartOf`     | No       | Publication or minute book this appears in                     |
 
 ### Person Fields
 
 The person block uses `schema:Person` vocabulary. Name fields follow schema.org conventions, which are deliberately culture-neutral: they do not assume a specific word order or that any particular component is present.
 
-| Field             | Schema.org Term          | Required        | Notes                                                                          |
-| ----------------- | ------------------------ | --------------- | ------------------------------------------------------------------------------ |
-| `givenName`       | `schema:givenName`       | Conditional †   | First/personal name(s)                                                         |
-| `familyName`      | `schema:familyName`      | Conditional †   | Family, clan, or surname                                                       |
-| `additionalName`  | `schema:additionalName`  | No              | Middle name(s) or additional given names; does not satisfy the † requirement   |
-| `honorificPrefix` | `schema:honorificPrefix` | No              | e.g. Dr., Rev., Elder                                                          |
-| `honorificSuffix` | `schema:honorificSuffix` | No              | e.g. Jr., Sr., III                                                             |
-| `birthDate`       | `schema:birthDate`       | No              | ISO 8601 partial date: `1923-04-17`, `1923-04`, or `1923` — see Date Precision |
-| `deathDate`       | `schema:deathDate`       | No              | ISO 8601 partial date — see Date Precision                                     |
-| `birthPlace`      | `schema:birthPlace`      | No              | Place object or free text — see Place Fields                                   |
-| `deathPlace`      | `schema:deathPlace`      | No              | Place object or free text — see Place Fields                                   |
-| `memberOf`        | `schema:memberOf`        | No              | Meeting(s) the Friend held membership in — see Place Fields                    |
+| Field             | Schema.org Term          | Required      | Notes                                                                          |
+| ----------------- | ------------------------ | ------------- | ------------------------------------------------------------------------------ |
+| `givenName`       | `schema:givenName`       | Conditional † | First/personal name(s)                                                         |
+| `familyName`      | `schema:familyName`      | Conditional † | Family, clan, or surname                                                       |
+| `additionalName`  | `schema:additionalName`  | No            | Middle name(s) or additional given names; does not satisfy the † requirement   |
+| `honorificPrefix` | `schema:honorificPrefix` | No            | e.g. Dr., Rev., Elder                                                          |
+| `honorificSuffix` | `schema:honorificSuffix` | No            | e.g. Jr., Sr., III                                                             |
+| `birthDate`       | `schema:birthDate`       | No            | ISO 8601 partial date: `1923-04-17`, `1923-04`, or `1923` — see Date Precision |
+| `deathDate`       | `schema:deathDate`       | No            | ISO 8601 partial date — see Date Precision                                     |
+| `birthPlace`      | `schema:birthPlace`      | No            | Place object or free text — see Place Fields                                   |
+| `deathPlace`      | `schema:deathPlace`      | No            | Place object or free text — see Place Fields                                   |
+| `memberOf`        | `schema:memberOf`        | No            | Meeting(s) the Friend held membership in — see Place Fields                    |
 
 † At least one of `givenName` or `familyName` must be present. See [Conformance](#conformance).
 
@@ -249,14 +249,16 @@ This pattern is established in genealogical software (FamilySearch, Gramps, GEDC
 
 ---
 
+## Publisher
+
 The `publisher` object identifies the meeting responsible for the minute.
 
-| Field | Notes |
-| --- | --- |
-| `name` | Full name of the meeting |
-| `quaker:meetingType` | Controlled vocabulary value — see [`quaker:meetingType`](/specs/core-vocabulary/#meeting-types) |
-| `url` | Canonical URL of the meeting's website |
-| `yearlyMeeting` | Name of affiliated yearly meeting, if any |
+| Field                 | Notes                                                                                              |
+| --------------------- | -------------------------------------------------------------------------------------------------- |
+| `name`                | Full name of the meeting                                                                           |
+| `quaker:meetingType`  | Controlled vocabulary value — see [`quaker:meetingType`](/specs/core-vocabulary/#meeting-types)    |
+| `url`                 | Canonical URL of the meeting's website                                                             |
+| `yearlyMeeting`       | Name of affiliated yearly meeting, if any                                                          |
 | `quaker:quakerBranch` | Controlled vocabulary value — see [`quaker:quakerBranch`](/specs/core-vocabulary/#quaker-branches) |
 
 ---
