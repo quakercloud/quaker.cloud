@@ -312,6 +312,8 @@ File extension: `.xml`
 Media type: `application/xml`
 Namespace: `https://quaker.cloud/spec/ns/memorial/`
 
+**Prefix mapping rule:** The root element `<memorialMinute>` and any elements defined exclusively by this specification use the unprefixed default memorial namespace. All schema.org properties use the `schema:` prefix. Quaker-specific extension fields use the `quaker:` prefix. Implementers must follow this rule to produce consistent, interoperable XML.
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <memorialMinute
@@ -320,18 +322,18 @@ Namespace: `https://quaker.cloud/spec/ns/memorial/`
   xmlns:quaker="https://quaker.cloud/spec/ns/"
   version="0.1">
 
-  <identifier>memorial/lindqvist-anna-maria-2024</identifier>
-  <dateCreated>2024-11-01</dateCreated>
-  <inLanguage>fi</inLanguage>
+  <schema:identifier>memorial/lindqvist-anna-maria-2024</schema:identifier>
+  <schema:dateCreated>2024-11-01</schema:dateCreated>
+  <schema:inLanguage>fi</schema:inLanguage>
 
-  <publisher>
+  <schema:publisher>
     <schema:name>Finland Yearly Meeting</schema:name>
     <schema:url>https://kvakari.fi</schema:url>
     <quaker:meetingType>yearly</quaker:meetingType>
     <quaker:quakerBranch>unprogrammed</quaker:quakerBranch>
-  </publisher>
+  </schema:publisher>
 
-  <about schema:type="Person">
+  <schema:about schema:type="Person">
     <schema:givenName>Anna Maria</schema:givenName>
     <schema:familyName>Lindqvist</schema:familyName>
     <schema:birthDate>1923</schema:birthDate>
@@ -340,7 +342,7 @@ Namespace: `https://quaker.cloud/spec/ns/memorial/`
       <schema:addressCountry>FI</schema:addressCountry>
     </schema:birthPlace>
     <schema:deathDate>2024-09-14</schema:deathDate>
-  </about>
+  </schema:about>
 
   <schema:articleBody><![CDATA[
     Full text of the memorial minute goes here...
