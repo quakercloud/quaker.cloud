@@ -316,12 +316,13 @@ File extension: `.xml`
 Media type: `application/xml`
 Namespace: `https://quaker.cloud/spec/ns/memorial/`
 
-**Prefix mapping rule:** The root element `<memorialMinute>` and any elements defined exclusively by this specification use the unprefixed default memorial namespace. All schema.org properties use the `schema:` prefix. Quaker-specific extension fields use the `quaker:` prefix. Implementers must follow this rule to produce consistent, interoperable XML.
+**Prefix mapping rule:** The root element `<memorialMinute>` and any elements defined exclusively by this specification use the unprefixed default memorial namespace. All schema.org properties use the `schema:` prefix. Quaker-specific extension fields use the `quaker:` prefix. RDF type declarations use the `rdf:type` attribute with a CURIE value (e.g. `rdf:type="schema:Person"`); `schema:type` is not used because `https://schema.org/type` does not exist in the schema.org vocabulary. Implementers must follow this rule to produce consistent, interoperable XML.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <memorialMinute
   xmlns="https://quaker.cloud/spec/ns/memorial/"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
   xmlns:schema="https://schema.org/"
   xmlns:quaker="https://quaker.cloud/spec/ns/"
   version="0.1">
@@ -340,11 +341,11 @@ Namespace: `https://quaker.cloud/spec/ns/memorial/`
          <quaker:yearlyMeeting>Finland Yearly Meeting</quaker:yearlyMeeting> -->
   </schema:publisher>
 
-  <schema:about schema:type="Person">
+  <schema:about rdf:type="schema:Person">
     <schema:givenName>Anna Maria</schema:givenName>
     <schema:familyName>Lindqvist</schema:familyName>
     <schema:birthDate>1923</schema:birthDate>
-    <schema:birthPlace schema:type="Place">
+    <schema:birthPlace rdf:type="schema:Place">
       <schema:name>Turku</schema:name>
       <schema:addressCountry>FI</schema:addressCountry>
     </schema:birthPlace>
